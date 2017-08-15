@@ -29,18 +29,23 @@ public class App {
 	
 	public static void play(){
 		String operando = "";
+		//A classe Scanner esta sendo utilizada para gerenciador Entrada de dados informados pelo Usuario
 		Scanner in = new Scanner(System.in);
+		//Chamadas do sistema para apresentar frases no display
 		System.out.println("####Escolhe o Operando####");	
 		System.out.println("*  -->   Multiplicacao");
 		System.out.println("+  -->   Adicao");
 		System.out.println("e  -->   Exit/Sair");
 		
 		do{		
+			//Chamada do Sistema para atribuir entrada do Usuario a uma variavel na memoria
 			operando = in.nextLine();
 			if(operando.equals("*")){
+				//Mais uma vez chamada do sistema para apresentar uma frase no display
 				System.out.println(multiplica());
 			}
 			if(operando.equals("+")){
+				//Mais uma vez chamada do sistema para apresentar uma frase no display
 				System.out.println(soma());
 			}
 			
@@ -66,9 +71,10 @@ public class App {
 	}
 
 	public static void readFile(String fileName){
-		//o Paths.get utiliza 
+		//O Paths.get usa o sistema para receber a localização do arquivo
 		Path path = Paths.get(fileName);
 		int i=0;
+		//A classe Scanner esta sendo utilizada para chamar o Sistema de Gerenciamento de arquivos do O.S.
 		try (Scanner sc = new Scanner(Files.newBufferedReader(path, Charset.forName("utf8")))){
 			while (sc.hasNextLine()){
 				numerosArquivo.add(Integer.parseInt(sc.next()));				
@@ -79,7 +85,9 @@ public class App {
 		}
 		
 		if(numerosArquivo.size()==0){
+			//Mais uma vez chamada do sistema para apresentar uma frase no display
 			System.out.println("Arquivo vazio!");
+			//chamado no sistema para interromper o processo que apresentou falha
 			System.exit(1);
 		}
 	}
